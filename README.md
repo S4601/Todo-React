@@ -26,7 +26,7 @@ A robust and user-friendly Todo application designed for efficient task manageme
 
 &nbsp;
 
-[View Demo](https://a-g-social.vercel.app/)
+[View Demo](https://todo-react-chi-bay.vercel.app/)
 
 &nbsp;
 
