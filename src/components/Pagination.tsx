@@ -11,11 +11,11 @@ export function Pagination({totalPages, setCurrentPage, currentPage, color, colo
                                     disabled={currentPage === 1}
                                     className={`px-4 py-2 ${color} text-white rounded disabled:bg-gray-300 disabled:cursor-not-allowed hover:${colorHover} transition`}
                                 >
-                                    Предишна
+                                    Previous
                                 </button>
                                 
                                 <span className="text-gray-700 text-center">
-                                    Страница <span className="block">{currentPage} от {totalPages}</span>
+                                    Page <span className="block">{currentPage} of {totalPages}</span>
                                 </span>
 
                                 <button 
@@ -23,7 +23,7 @@ export function Pagination({totalPages, setCurrentPage, currentPage, color, colo
                                     disabled={currentPage === totalPages}
                                     className={`px-4 py-2 ${color} text-white rounded disabled:bg-gray-300 disabled:cursor-not-allowed hover:${colorHover} transition`}
                                 >
-                                    Следваща
+                                    Next
                                 </button>
                             </div>
                         )}
