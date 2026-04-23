@@ -65,15 +65,28 @@ export function HomePage() {
     const completedTodos = todos.filter((todo) => todo.completed);
     const completedFilteredTodos = selectedUser === "all" ? completedTodos : completedTodos.filter((todo) => todo.userId === selectedUser);
     const sortedCompletedFilteredTodos = [...completedFilteredTodos].sort((a, b) => {
+
+        const aHasDate = !!a.completedDate; 
+        const bHasDate = !!b.completedDate;
+
+        if (aHasDate && !bHasDate) return -1;
+        if (!aHasDate && bHasDate) return 1;
+
         if(sortCompletedBy === "default") {
-            return 0;
+            return a.id - b.id;
         } else if (sortCompletedBy === "title-asc") {
             return a.title.localeCompare(b.title);
         } else if (sortCompletedBy === "title-desc") {
             return b.title.localeCompare(a.title);
         } else if (sortCompletedBy === "date-asc") {
+
+            if (!a.completedDate || !b.completedDate) return 0;
+
             return new Date(a.completedDate || "").getTime() - new Date(b.completedDate || "").getTime();
         } else if (sortCompletedBy === "date-desc") {
+
+            if (!a.completedDate || !b.completedDate) return 0;
+            
             return new Date(b.completedDate || "").getTime() - new Date(a.completedDate || "").getTime();
         }
         return 0;
